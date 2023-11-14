@@ -17,7 +17,7 @@ static size_t	ft_strstart(const char *s1, char const *set)
 	size_t	i;
 
 	i = 0;
-	while (ft_strchr(set, s1[i]) && i < ft_strlen(s1) - 1)
+	while (ft_strchr(set, s1[i]) && i < ft_strlen(s1))
 		i++;
 	return (i);
 }
@@ -39,8 +39,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*strtrim;
 	size_t	i;
 
-	if (ft_strstart(s1, set) == 0 && ft_strstart(s1, set) == ft_strlen(s1))
-		return (strtrim = malloc(sizeof(char)), strtrim[0] = 0, strtrim);
+	if (ft_strend(s1, set) == 0 && ft_strstart(s1, set) == ft_strlen(s1))
+	{
+		strtrim = malloc(sizeof(char));
+		if (!strtrim)
+			return (NULL);
+		return (strtrim[0] = 0, strtrim);
+	}
 	strtrim = malloc(ft_strend(s1, set) - ft_strstart(s1, set) + 2);
 	if (!strtrim)
 		return (NULL);

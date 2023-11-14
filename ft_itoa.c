@@ -1,0 +1,63 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ggalon <ggalon@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/08 15:06:26 by ggalon            #+#    #+#             */
+/*   Updated: 2023/11/09 14:20:40 by ggalon           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+int	ft_numbersize(int nb)
+{
+	int				i;
+	unsigned int	unb;
+
+	i = 1;
+	if (nb < 0)
+	{
+		i++;
+		unb = (unsigned int)nb * -1;
+	}
+	else
+		unb = (unsigned int)nb;
+	while (unb >= 10)
+	{
+		i++;
+		unb /= 10;
+	}
+	return (i);
+}
+
+char	*ft_itoa(int nb)
+{
+	char			*strnumber;
+	unsigned int	unb;
+	int				i;
+
+	strnumber = malloc((ft_numbersize(nb) + 1) * sizeof(char));
+	if (!strnumber)
+		return (NULL);
+	if (nb == 0)
+		strnumber[0] = '0';
+	if (nb < 0)
+	{
+		strnumber[0] = '-';
+		unb = (unsigned int)nb * -1;
+	}
+	else
+		unb = (unsigned int)nb;
+	i = ft_numbersize(nb);
+	strnumber[i--] = 0;
+	while (unb != 0)
+	{
+		strnumber[i] = unb % 10 + '0';
+		unb /= 10;
+		i--;
+	}
+	return (strnumber);
+}

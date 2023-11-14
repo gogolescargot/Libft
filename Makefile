@@ -38,8 +38,8 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar -rcs $@ $(OBJS)
 
-bonus: $(OBJS) $(OBJS_B)
-	ar -rcs $(NAME) $^
+bonus:
+	$(MAKE) SRCS="$(SRCS) $(SRCS_B)"
 
 %.o: %.c $(INCL) 
 	$(CC) $(CFLAGS) -c $< -o $@

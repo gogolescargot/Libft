@@ -10,11 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+int ft_checkoverflow(long n)
+{
+	if (n > LONG_MAX / 10)
+		return (-1);
+	else 
+		return (n *= 10);
+}
+
 int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	m;
-	int	r;
+	long	i;
+	long	m;
+	long	r;
 
 	i = 0;
 	m = 1;
@@ -32,8 +42,17 @@ int	ft_atoi(const char *nptr)
 	{
 		r += nptr[i] - 48;
 		if (nptr[i + 1] >= 48 && nptr[i + 1] <= 57)
-			r *= 10;
+		{
+			if (ft_checkoverflow(r) == -1)
+				return (-1);
+			r = ft_checkoverflow(r);
+		}
 		i++;
 	}
 	return (r * m);
+}
+
+int	main (int argc, char **argv)
+{
+	printf("%d\n%d", ft_atoi(argv[1]), atoi(argv[1]));
 }

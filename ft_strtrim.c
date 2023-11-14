@@ -12,37 +12,35 @@
 
 #include "libft.h"
 
-int	ft_strstart(const char *s1, char const *set)
+static size_t	ft_strstart(const char *s1, char const *set)
 {
 	size_t	i;
 
 	i = 0;
-	while (ft_strchr(set, s1[i]) && i < ft_strlen(s1))
+	while (ft_strchr(set, s1[i]) && i < ft_strlen(s1) - 1)
 		i++;
-	if (i == ft_strlen(s1))
-		return (0);
 	return (i);
 }
 
-int	ft_strend(const char *s1, char const *set)
+static size_t	ft_strend(const char *s1, char const *set)
 {
 	size_t	i;
 
 	if (!s1[0])
-		return (-1);
+		return (0);
 	i = ft_strlen(s1) - 1;
 	while (ft_strchr(set, s1[i]) && i > 0)
 		i--;
-	if (i == 0)
-		return (-1);
 	return (i);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*strtrim;
-	int		i;
+	size_t	i;
 
+	if (ft_strstart(s1, set) == 0 && ft_strstart(s1, set) == ft_strlen(s1))
+		return (strtrim = malloc(sizeof(char)), strtrim[0] = 0, strtrim);
 	strtrim = malloc(ft_strend(s1, set) - ft_strstart(s1, set) + 2);
 	if (!strtrim)
 		return (NULL);

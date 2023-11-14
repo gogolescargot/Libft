@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-int	ft_numbersize(int nb)
+static int	ft_numbersize(int nb)
 {
-	int				i;
-	unsigned int	unb;
+	size_t	i;
+	size_t	unb;
 
 	i = 1;
 	if (nb < 0)
@@ -35,9 +35,9 @@ int	ft_numbersize(int nb)
 
 char	*ft_itoa(int nb)
 {
-	char			*strnumber;
-	unsigned int	unb;
-	int				i;
+	char	*strnumber;
+	size_t	unb;
+	size_t	i;
 
 	strnumber = malloc((ft_numbersize(nb) + 1) * sizeof(char));
 	if (!strnumber)

@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-void	ft_freearray(char **array, int size)
+static void	ft_freearray(char **array, size_t size)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < size)
@@ -25,10 +25,10 @@ void	ft_freearray(char **array, int size)
 	free(array);
 }
 
-char	*ft_strndup(char const *src, int n)
+static char	*ft_strndup(char const *src, size_t n)
 {
 	char	*dest;
-	int		i;
+	size_t	i;
 
 	i = 0;
 	dest = malloc(sizeof(char) * (n + 1));
@@ -43,10 +43,10 @@ char	*ft_strndup(char const *src, int n)
 	return (dest);
 }
 
-int	ft_count_words(char const *s, char c)
+static size_t	ft_count_words(char const *s, char c)
 {
-	int	words;
-	int	i;
+	size_t	words;
+	size_t	i;
 
 	i = 0;
 	words = 0;

@@ -21,10 +21,10 @@ static int	ft_numbersize(int nb)
 	if (nb < 0)
 	{
 		i++;
-		unb = (unsigned int)nb * -1;
+		unb = (size_t)nb * -1;
 	}
 	else
-		unb = (unsigned int)nb;
+		unb = (size_t)nb;
 	while (unb >= 10)
 	{
 		i++;
@@ -47,10 +47,10 @@ char	*ft_itoa(int nb)
 	if (nb < 0)
 	{
 		strnumber[0] = '-';
-		unb = (unsigned int)nb * -1;
+		unb = (size_t)nb * -1;
 	}
 	else
-		unb = (unsigned int)nb;
+		unb = (size_t)nb;
 	i = ft_numbersize(nb);
 	strnumber[i--] = 0;
 	while (unb != 0)

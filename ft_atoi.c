@@ -32,8 +32,6 @@ int	ft_atoi(const char *nptr)
 		i++;
 	while (nptr[i] >= 48 && nptr[i] <= 57)
 	{
-		if (r > LONG_MAX / 10)
-			return (-1 * (m == 1));
 		r = nptr[i++] - 48 + (r * 10);
 		if (r < 0)
 			return (-1 * (m == 1));

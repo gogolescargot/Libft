@@ -1,8 +1,9 @@
 # Libft
-Ta propre bibliothèque rien que pour toi
+Your very first own library
 
-Résumé:
-Ce projet a pour objectif de vous faire coder en C une bibliothèque de fonctions usuelles
-que vous pourrez utiliser pour vos prochains projets.
+Summary:
+
+This project is about coding a C library.
+It will contain a lot of general purpose functions your programs will rely upon.
 
 Grade : 125 / 100
